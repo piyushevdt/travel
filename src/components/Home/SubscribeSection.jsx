@@ -24,6 +24,7 @@ const SubscribeSection = () => {
         textAlign: "center",
         position: "relative",
         // overflow: 'hidden',
+        my: {xs:2, md: 8},
       }}
     >
       {/* Heading */}
