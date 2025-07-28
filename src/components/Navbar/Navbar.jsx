@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -25,7 +25,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { getAuthToken, getUserData, logout } from "@/utils/auth";
+import { AuthContext } from "@/context/AuthContext";
 
 function HideOnScroll({ children }) {
   const trigger = useScrollTrigger();
@@ -40,15 +40,13 @@ function HideOnScroll({ children }) {
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [user, setUser] = useState(null);
+  const [isClient, setIsClient] = useState(false);
+  const { user, logout } = useContext(AuthContext);
   const pathname = usePathname();
 
+  // Ensure client-side rendering for conditional content
   useEffect(() => {
-    // Check if user is authenticated on component mount
-    const token = getAuthToken();
-    if (token) {
-      setUser(getUserData());
-    }
+    setIsClient(true);
   }, []);
 
   const handleDrawerToggle = () => {
@@ -65,7 +63,6 @@ export default function Navbar() {
 
   const handleLogout = () => {
     logout();
-    setUser(null);
     handleMenuClose();
     window.location.href = "/"; // Refresh to update UI
   };
@@ -79,22 +76,20 @@ export default function Navbar() {
       { name: "Bookings", path: "/bookings" },
     ];
 
-    if (user) {
-      return commonItems;
-    } else {
-      return [
-        ...commonItems,
-        { name: "LogIn", path: "/login" },
-        { name: "SignUp", path: "/signup" },
-      ];
-    }
+    // Only show auth-dependent items after client hydration
+    if (!isClient) return commonItems;
+    
+    return user ? commonItems : [...commonItems, 
+      { name: "LogIn", path: "/login" },
+      { name: "SignUp", path: "/signup" }
+    ];
   };
 
   const navItems = getNavItems();
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ p: 2 }}>
-      <Box sx={{ p: 2 }}>
+    <div onClick={handleDrawerToggle} style={{ padding: '16px' }}>
+      <div style={{ padding: '16px' }}>
         <Link href="/" passHref>
           <Image
             src="/images/Logo.png"
@@ -104,7 +99,7 @@ export default function Navbar() {
             priority
           />
         </Link>
-      </Box>
+      </div>
       <Divider />
       <List>
         {navItems.map((item) => {
@@ -135,7 +130,7 @@ export default function Navbar() {
             </ListItem>
           );
         })}
-        {user && (
+        {isClient && user && (
           <>
             <Divider />
             <ListItem disablePadding>
@@ -186,11 +181,11 @@ export default function Navbar() {
           </>
         )}
       </List>
-    </Box>
+    </div>
   );
 
   return (
-    <Box>
+    <>
       <HideOnScroll>
         <AppBar
           component="nav"
@@ -214,7 +209,7 @@ export default function Navbar() {
               >
                 <MenuIcon />
               </IconButton>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
+              <div style={{ flexGrow: 1, display: 'block' }}>
                 <Link href="/" passHref>
                   <Image
                     src="/images/Logo.png"
@@ -222,10 +217,11 @@ export default function Navbar() {
                     width={100}
                     height={40}
                     priority
+                    style={{ display: 'block' }}
                   />
                 </Link>
-              </Box>
-              <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+              </div>
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                 {navItems.map((item) => {
                   const isActive = pathname === item.path;
                   return (
@@ -242,6 +238,7 @@ export default function Navbar() {
                           ? "2px solid #000"
                           : "2px solid transparent",
                         transition: "all 0.3s ease",
+                        display: { xs: "none", sm: "inline-flex" },
                         "&:hover": {
                           backgroundColor: "rgba(255, 255, 255, 0.1)",
                           border: "2px solid #000",
@@ -252,11 +249,11 @@ export default function Navbar() {
                     </Button>
                   );
                 })}
-                {user && (
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                {isClient && user && (
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
                     <IconButton
                       onClick={handleMenuOpen}
-                      sx={{ p: 0, ml: 2 }}
+                      sx={{ p: 0, ml: 2, display: { xs: "none", sm: "flex" } }}
                       aria-controls="user-menu"
                       aria-haspopup="true"
                     >
@@ -322,14 +319,14 @@ export default function Navbar() {
                       </MenuItem>
                       <MenuItem onClick={handleLogout}>Logout</MenuItem>
                     </Menu>
-                  </Box>
+                  </div>
                 )}
-              </Box>
+              </div>
             </Toolbar>
           </Container>
         </AppBar>
       </HideOnScroll>
-      <Box component="nav">
+      <nav>
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -344,7 +341,7 @@ export default function Navbar() {
         >
           {drawer}
         </Drawer>
-      </Box>
-    </Box>
+      </nav>
+    </>
   );
 }
