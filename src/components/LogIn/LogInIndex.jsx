@@ -12,13 +12,13 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
     const result = authenticateUser(email, password);
 
     if (result.success) {
-      storeAuthToken(result.token, result.user);
-      router.push("/"); // Redirect to home after login
+      login(result.token, result.user);
+      router.push("/");
     } else {
       setError(result.message);
     }

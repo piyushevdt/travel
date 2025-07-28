@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "@/theme/theme";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import { AuthProvider } from "@/context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +28,11 @@ export default function RootLayout({ children }) {
         <SmoothScroll>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Navbar />
-            {children}
-            <Footer/>
+            <AuthProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </AuthProvider>
           </ThemeProvider>
         </SmoothScroll>
       </body>
