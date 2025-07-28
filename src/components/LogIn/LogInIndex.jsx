@@ -1,16 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Box, TextField, Button, Typography, Container } from "@mui/material";
 import { authenticateUser, storeAuthToken } from "@/utils/auth";
 import Link from "next/link";
 import CustomButton from "../Custom/CustomButton";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const { login } = useContext(AuthContext);
 
    const handleSubmit = (e) => {
     e.preventDefault();
