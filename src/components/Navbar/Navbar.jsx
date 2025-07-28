@@ -21,6 +21,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 function HideOnScroll({ children }) {
   const trigger = useScrollTrigger();
@@ -34,39 +35,60 @@ function HideOnScroll({ children }) {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const navItems = [
-    { name: "Destinations", path: "/" },
-    { name: "Hotels", path: "/" },
-    { name: "Flights", path: "/" },
-    { name: "Bookings", path: "/" },
-    { name: "LogIn", path: "/" },
-    { name: "SignUp", path: "/" },
+    { name: "Destinations", path: "/destinations" },
+    { name: "Hotels", path: "/hotels" },
+    { name: "Flights", path: "/flights" },
+    { name: "Bookings", path: "/bookings" },
+    { name: "LogIn", path: "/login" },
+    { name: "SignUp", path: "/signup" },
   ];
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Your Logo
-      </Typography>
+    <Box onClick={handleDrawerToggle} sx={{ p: 2 }}>
+      <Box sx={{ p: 2 }}>
+        <Image 
+          src="/images/Logo.png" 
+          alt="Your Logo" 
+          width={100} 
+          height={40}
+          priority
+        />
+      </Box>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.name} disablePadding>
-            <Link
-              href={item.path}
-              style={{ width: "100%", textDecoration: "none" }}
-            >
-              <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={item.name} />
+        {navItems.map((item) => {
+          const isActive = pathname === item.path;
+          return (
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton
+                component={Link}
+                href={item.path}
+                sx={{ 
+                  px: 2,
+                  backgroundColor: isActive ? "rgba(0, 0, 0, 0.08)" : "transparent",
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.04)"
+                  }
+                }}
+              >
+                <ListItemText 
+                  primary={item.name} 
+                  primaryTypographyProps={{
+                    fontWeight: isActive ? "bold" : "normal",
+                    color: isActive ? "primary.main" : "text.primary"
+                  }}
+                />
               </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
+            </ListItem>
+          );
+        })}
       </List>
     </Box>
   );
@@ -81,11 +103,11 @@ export default function Navbar() {
           sx={{
             backgroundColor: "transparent",
             backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)", // Safari support
+            WebkitBackdropFilter: "blur(10px)",
             borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
           }}
         >
-          <Container maxWidth="lg">
+          <Container>
             <Toolbar>
               <IconButton
                 color="inherit"
@@ -102,32 +124,36 @@ export default function Navbar() {
                   alt="Your Logo"
                   width={100}
                   height={40}
+                  priority
                 />
               </Box>
-              <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 3 }}>
-                {navItems.map((item) => (
-                  <Link
-                    href={item.path}
-                    key={item.name}
-                    style={{ textDecoration: "none" }}
-                  >
+              <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+                {navItems.map((item) => {
+                  const isActive = pathname === item.path;
+                  return (
                     <Button
+                      key={item.name}
+                      component={Link}
+                      href={item.path}
                       sx={{
-                        color: "#000",
+                        color: isActive ? "primary.main" : "#000",
+                        fontWeight: isActive ? "bold" : "normal",
                         textShadow: "0 1px 3px rgba(0, 0, 0, 0.3)",
                         fontSize: { xs: "0.875rem", sm: "1rem" },
-                        border: "2px solid transparent", 
+                        border: isActive 
+                          ? "2px solid #000" 
+                          : "2px solid transparent",
                         transition: "all 0.3s ease",
                         "&:hover": {
                           backgroundColor: "rgba(255, 255, 255, 0.1)",
-                          border: "2px solid #000", 
+                          border: "2px solid #000",
                         },
                       }}
                     >
                       {item.name}
                     </Button>
-                  </Link>
-                ))}
+                  );
+                })}
               </Box>
             </Toolbar>
           </Container>
@@ -139,7 +165,7 @@ export default function Navbar() {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, 
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },

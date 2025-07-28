@@ -1,0 +1,64 @@
+{
+  "destination": [
+    {
+      "slug": "rome-italy",
+      "image": "/images/selling1.png",
+      "location": "Rome, Italy",
+      "price": "$5,42k",
+      "days": "10 Days Trip",
+      "description": "Explore the ancient wonders of Rome, including the Colosseum, Vatican City, and the Roman Forum. Experience the rich history and delicious Italian cuisine.",
+      "highlights": [
+        "Guided tour of the Colosseum",
+        "Visit to Vatican Museums and Sistine Chapel",
+        "Walking tour of historic center",
+        "Taste authentic Italian gelato"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Rome",
+          "description": "Transfer to hotel and welcome dinner"
+        },
+        {
+          "day": 2,
+          "title": "Ancient Rome Tour",
+          "description": "Visit Colosseum, Roman Forum, and Palatine Hill"
+        }
+      ],
+      "included": [
+        "All airport transfers",
+        "4-star hotel accommodation",
+        "Daily breakfast",
+        "Entrance fees to all attractions"
+      ]
+    },
+    {
+      "slug": "london-uk",
+      "image": "/images/selling2.png",
+      "location": "London, UK",
+      "price": "$4.2k",
+      "days": "12 Days Trip",
+      "description": "Discover the iconic landmarks of London, from Buckingham Palace to the Tower of London. Enjoy traditional afternoon tea and West End shows.",
+      "highlights": [
+        "Changing of the Guard ceremony",
+        "Thames River cruise",
+        "Visit to the British Museum",
+        "Day trip to Stonehenge"
+      ]
+    },
+    {
+      "slug": "full-europe",
+      "image": "/images/selling3.png",
+      "location": "Full Europe",
+      "price": "$15k",
+      "days": "28 Days Trip",
+      "description": "The ultimate European adventure covering 8 countries. Experience diverse cultures, cuisines, and landscapes across the continent.",
+      "highlights": [
+        "Eiffel Tower in Paris",
+        "Canals of Amsterdam",
+        "Alpine scenery in Switzerland",
+        "Historic sites in Berlin"
+      ]
+    }
+  ]
+}

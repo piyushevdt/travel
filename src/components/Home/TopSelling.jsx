@@ -9,20 +9,21 @@ const TopSelling = () => {
       location: 'Rome, Italy',
       price: '$5,42k',
       days: '10 Days Trip',
-      slug: "paris-france",
+      slug: "rome-italy",
     },
     {
       image: '/images/selling2.png',
       location: 'London, UK',
       price: '$4.2k',
       days: '12 Days Trip',
-      slug: "paris-france",
+      slug: "london-uk",
     },
     {
       image: '/images/selling3.png',
       location: 'Full Europe',
       price: '$15k',
       days: '28 Days Trip',
+      slug: "full-europe",
     },
   ];
   return (

@@ -14,7 +14,7 @@ import { Icon } from '@iconify/react';
 
 const TravelCard = ({ image, location, price, days, slug }) => {
   return (
-    <Link href={`/travel/${slug}`} style={{ textDecoration: 'none' }}>
+    <Link href={`/destinations/${slug}`} style={{ textDecoration: 'none' }}>
       <Card
         elevation={3}
         sx={{

@@ -1,0 +1,283 @@
+{
+  "hotels": [
+    {
+      "id": 1,
+      "slug": "grand-hotel-rome",
+      "name": "Grand Hotel Rome",
+      "location": "Rome, Italy",
+      "price": "$250/night",
+      "rating": 4.8,
+      "image": "https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?cs=srgb&dl=dug-out-pool-hotel-poolside-1134176.jpg&fm=jpg",
+      "description": "Luxurious 5-star hotel in the heart of Rome with stunning views of historic landmarks.",
+      "amenities": ["Free WiFi", "Swimming Pool", "Spa", "Fitness Center", "Restaurant"],
+      "rooms": [
+        {
+          "type": "Deluxe Room",
+          "price": "$250",
+          "size": "35 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Air Conditioning", "Minibar", "TV", "Safe"]
+        },
+        {
+          "type": "Executive Suite",
+          "price": "$450",
+          "size": "65 m²",
+          "beds": "1 King Bed + Living Area",
+          "amenities": ["Air Conditioning", "Minibar", "TV", "Safe", "Balcony"]
+        }
+      ],
+      "reviews": [
+        {
+          "author": "Michael Johnson",
+          "rating": 5,
+          "comment": "Exceptional service and perfect location for exploring Rome."
+        },
+        {
+          "author": "Sarah Williams",
+          "rating": 4,
+          "comment": "Beautiful hotel but the pool was smaller than expected."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "london-plaza",
+      "name": "London Plaza Hotel",
+      "location": "London, UK",
+      "price": "$320/night",
+      "rating": 4.5,
+      "image": "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?cs=srgb&dl=architecture-building-chairs-2034335.jpg&fm=jpg",
+      "description": "Elegant boutique hotel in central London with modern amenities and classic British charm.",
+      "amenities": ["Free WiFi", "Breakfast Included", "Bar", "24-hour Front Desk"],
+      "rooms": [
+        {
+          "type": "Standard Room",
+          "price": "$320",
+          "size": "28 m²",
+          "beds": "1 Queen Bed",
+          "amenities": ["Air Conditioning", "TV", "Coffee Maker"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "paris-eiffel-suites",
+      "name": "Paris Eiffel Suites",
+      "location": "Paris, France",
+      "price": "$380/night",
+      "rating": 4.9,
+      "image": "https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?cs=srgb&dl=pexels-amar-saleem-70441.jpg&fm=jpg",
+      "description": "Boutique hotel with breathtaking views of the Eiffel Tower from select rooms.",
+      "amenities": ["Free WiFi", "Terrace", "Concierge", "Room Service"],
+      "rooms": [
+        {
+          "type": "Eiffel View Room",
+          "price": "$380",
+          "size": "32 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Air Conditioning", "Minibar", "TV", "Balcony"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "tokyo-sky-view",
+      "name": "Tokyo Sky View Hotel",
+      "location": "Tokyo, Japan",
+      "price": "$420/night",
+      "rating": 4.7,
+      "image": "https://wallpaperaccess.com/full/2690968.jpg",
+      "description": "Modern high-rise hotel offering panoramic views of Tokyo skyline with authentic Japanese hospitality.",
+      "amenities": ["Free WiFi", "Onsen Spa", "Sky Lounge", "Business Center", "Concierge"],
+      "rooms": [
+        {
+          "type": "City View Room",
+          "price": "$420",
+          "size": "30 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Air Conditioning", "Smart TV", "Nespresso Machine", "Yukata Robes"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "bali-jungle-retreat",
+      "name": "Bali Jungle Retreat",
+      "location": "Ubud, Bali",
+      "price": "$180/night",
+      "rating": 4.9,
+      "image": "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg",
+      "description": "Eco-friendly luxury villas nestled in the Balinese jungle with private pools and spa services.",
+      "amenities": ["Free WiFi", "Infinity Pool", "Yoga Pavilion", "Organic Restaurant", "Spa"],
+      "rooms": [
+        {
+          "type": "Jungle Villa",
+          "price": "$180",
+          "size": "55 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Private Pool", "Outdoor Shower", "Air Conditioning", "Minibar"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "nyc-central-suites",
+      "name": "NYC Central Suites",
+      "location": "New York, USA",
+      "price": "$350/night",
+      "rating": 4.6,
+      "image": "https://images.pexels.com/photos/812628/pexels-photo-812628.png?cs=srgb&dl=architecture-building-casino-812628.jpg&fm=jpg",
+      "description": "Stylish suites in Midtown Manhattan just steps from Central Park and Broadway theaters.",
+      "amenities": ["Free WiFi", "Fitness Center", "Business Lounge", "24-hour Room Service"],
+      "rooms": [
+        {
+          "type": "Central Park View Suite",
+          "price": "$450",
+          "size": "40 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Air Conditioning", "Smart TV", "Work Desk", "Mini Bar"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "dubai-desert-oasis",
+      "name": "Dubai Desert Oasis",
+      "location": "Dubai, UAE",
+      "price": "$520/night",
+      "rating": 4.8,
+      "image": "https://images.pexels.com/photos/594077/pexels-photo-594077.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "description": "Luxury resort combining Arabian hospitality with modern amenities near the Dubai desert.",
+      "amenities": ["Free WiFi", "Private Beach", "Infinity Pools", "World-class Spa", "7 Restaurants"],
+      "rooms": [
+        {
+          "type": "Deluxe Desert View",
+          "price": "$520",
+          "size": "45 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Air Conditioning", "Smart Mirror", "iPad Controls", "Luxury Bath Amenities"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "sydney-harbor-lights",
+      "name": "Sydney Harbor Lights",
+      "location": "Sydney, Australia",
+      "price": "$290/night",
+      "rating": 4.7,
+      "image": "https://images.pexels.com/photos/594077/pexels-photo-594077.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "description": "Boutique hotel with spectacular views of Sydney Opera House and Harbour Bridge.",
+      "amenities": ["Free WiFi", "Rooftop Bar", "Fitness Center", "Concierge"],
+      "rooms": [
+        {
+          "type": "Harbor View Room",
+          "price": "$350",
+          "size": "38 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Air Conditioning", "Balcony", "Smart TV", "Mini Bar"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "santorini-sunset",
+      "name": "Santorini Sunset Suites",
+      "location": "Santorini, Greece",
+      "price": "$280/night",
+      "rating": 4.9,
+      "image": "https://images.pexels.com/photos/1082326/pexels-photo-1082326.jpeg?cs=srgb&dl=pexels-fox-1082326.jpg&fm=jpg",
+      "description": "Iconic whitewashed suites with caldera views and private plunge pools in Oia.",
+      "amenities": ["Free WiFi", "Infinity Pool", "Sunset Terrace", "Greek Restaurant"],
+      "rooms": [
+        {
+          "type": "Caldera View Suite",
+          "price": "$380",
+          "size": "42 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Private Plunge Pool", "Air Conditioning", "Outdoor Shower", "Minibar"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "cape-town-vista",
+      "name": "Cape Town Vista",
+      "location": "Cape Town, South Africa",
+      "price": "$220/night",
+      "rating": 4.6,
+      "image": "https://images.pexels.com/photos/594077/pexels-photo-594077.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "description": "Luxury hotel at the foot of Table Mountain with panoramic views of the Atlantic Ocean.",
+      "amenities": ["Free WiFi", "Infinity Pool", "Safari Desk", "Wine Bar", "Spa"],
+      "rooms": [
+        {
+          "type": "Mountain View Room",
+          "price": "$220",
+          "size": "35 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Air Conditioning", "Balcony", "Smart TV", "Coffee Machine"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "kyoto-ryokan",
+      "name": "Kyoto Traditional Ryokan",
+      "location": "Kyoto, Japan",
+      "price": "$310/night",
+      "rating": 4.8,
+      "image": "https://images.pexels.com/photos/594077/pexels-photo-594077.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "description": "Authentic Japanese inn featuring tatami rooms, kaiseki meals, and onsen hot springs.",
+      "amenities": ["Free WiFi", "Onsen Baths", "Tea Ceremony", "Japanese Garden", "Kaiseki Restaurant"],
+      "rooms": [
+        {
+          "type": "Traditional Tatami Room",
+          "price": "$310",
+          "size": "25 m²",
+          "beds": "Futon Beds",
+          "amenities": ["Yukata Robes", "Green Tea Set", "Low Table", "Garden View"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "barcelona-arts",
+      "name": "Barcelona Arts Hotel",
+      "location": "Barcelona, Spain",
+      "price": "$270/night",
+      "rating": 4.5,
+      "image": "https://images.pexels.com/photos/4223678/pexels-photo-4223678.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+      "description": "Contemporary design hotel near La Rambla featuring works by local artists throughout.",
+      "amenities": ["Free WiFi", "Rooftop Pool", "Art Gallery", "Tapas Bar", "Fitness Center"],
+      "rooms": [
+        {
+          "type": "Artist Loft Room",
+          "price": "$270",
+          "size": "32 m²",
+          "beds": "1 Queen Bed",
+          "amenities": ["Air Conditioning", "Smart TV", "Workspace", "Minibar"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "maldives-overwater",
+      "name": "Maldives Overwater Bungalows",
+      "location": "North Malé Atoll, Maldives",
+      "price": "$890/night",
+      "rating": 4.9,
+      "image": "https://images.pexels.com/photos/594077/pexels-photo-594077.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "description": "Luxurious overwater villas with glass floors and direct lagoon access in the Maldives.",
+      "amenities": ["Free WiFi", "Private Pool", "House Reef", "Spa", "Water Sports"],
+      "rooms": [
+        {
+          "type": "Overwater Villa",
+          "price": "$890",
+          "size": "85 m²",
+          "beds": "1 King Bed",
+          "amenities": ["Glass Floor", "Direct Lagoon Access", "Outdoor Shower", "Private Deck"]
+        }
+      ]
+    }
+  ]
+}
