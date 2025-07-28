@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
   Button,
   Box,
   Drawer,
@@ -17,11 +16,16 @@ import {
   useScrollTrigger,
   Slide,
   Container,
+  Avatar,
+  Menu,
+  MenuItem,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { getAuthToken, getUserData, logout } from "@/utils/auth";
 
 function HideOnScroll({ children }) {
   const trigger = useScrollTrigger();
@@ -35,31 +39,71 @@ function HideOnScroll({ children }) {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [user, setUser] = useState(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    // Check if user is authenticated on component mount
+    const token = getAuthToken();
+    if (token) {
+      setUser(getUserData());
+    }
+  }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const navItems = [
-    { name: "Destinations", path: "/destinations" },
-    { name: "Hotels", path: "/hotels" },
-    { name: "Flights", path: "/flights" },
-    { name: "Bookings", path: "/bookings" },
-    { name: "LogIn", path: "/login" },
-    { name: "SignUp", path: "/signup" },
-  ];
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setUser(null);
+    handleMenuClose();
+    window.location.href = "/"; // Refresh to update UI
+  };
+
+  // Filter nav items based on authentication
+  const getNavItems = () => {
+    const commonItems = [
+      { name: "Destinations", path: "/destinations" },
+      { name: "Hotels", path: "/hotels" },
+      { name: "Flights", path: "/flights" },
+      { name: "Bookings", path: "/bookings" },
+    ];
+
+    if (user) {
+      return commonItems;
+    } else {
+      return [
+        ...commonItems,
+        { name: "LogIn", path: "/login" },
+        { name: "SignUp", path: "/signup" },
+      ];
+    }
+  };
+
+  const navItems = getNavItems();
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ p: 2 }}>
       <Box sx={{ p: 2 }}>
-        <Image 
-          src="/images/Logo.png" 
-          alt="Your Logo" 
-          width={100} 
-          height={40}
-          priority
-        />
+        <Link href="/" passHref>
+          <Image
+            src="/images/Logo.png"
+            alt="Your Logo"
+            width={100}
+            height={40}
+            priority
+          />
+        </Link>
       </Box>
       <Divider />
       <List>
@@ -70,31 +114,83 @@ export default function Navbar() {
               <ListItemButton
                 component={Link}
                 href={item.path}
-                sx={{ 
+                sx={{
                   px: 2,
-                  backgroundColor: isActive ? "rgba(0, 0, 0, 0.08)" : "transparent",
+                  backgroundColor: isActive
+                    ? "rgba(0, 0, 0, 0.08)"
+                    : "transparent",
                   "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.04)"
-                  }
+                    backgroundColor: "rgba(0, 0, 0, 0.04)",
+                  },
                 }}
               >
-                <ListItemText 
-                  primary={item.name} 
+                <ListItemText
+                  primary={item.name}
                   primaryTypographyProps={{
                     fontWeight: isActive ? "bold" : "normal",
-                    color: isActive ? "primary.main" : "text.primary"
+                    color: isActive ? "primary.main" : "text.primary",
                   }}
                 />
               </ListItemButton>
             </ListItem>
           );
         })}
+        {user && (
+          <>
+            <Divider />
+            <ListItem disablePadding>
+              <ListItemButton
+                component={Link}
+                href="/dashboard"
+                sx={{
+                  px: 2,
+                  backgroundColor:
+                    pathname === "/dashboard"
+                      ? "rgba(0, 0, 0, 0.08)"
+                      : "transparent",
+                }}
+              >
+                <ListItemText
+                  primary="Dashboard"
+                  primaryTypographyProps={{
+                    fontWeight: pathname === "/dashboard" ? "bold" : "normal",
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton
+                component={Link}
+                href="/profile"
+                sx={{
+                  px: 2,
+                  backgroundColor:
+                    pathname === "/profile"
+                      ? "rgba(0, 0, 0, 0.08)"
+                      : "transparent",
+                }}
+              >
+                <ListItemText
+                  primary="Profile"
+                  primaryTypographyProps={{
+                    fontWeight: pathname === "/profile" ? "bold" : "normal",
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton onClick={handleLogout} sx={{ px: 2 }}>
+                <ListItemText primary="Logout" />
+              </ListItemButton>
+            </ListItem>
+          </>
+        )}
       </List>
     </Box>
   );
 
   return (
-    <>
+    <Box>
       <HideOnScroll>
         <AppBar
           component="nav"
@@ -118,14 +214,16 @@ export default function Navbar() {
               >
                 <MenuIcon />
               </IconButton>
-              <Box sx={{ flexGrow: 1 }}>
-                <Image
-                  src="/images/Logo.png"
-                  alt="Your Logo"
-                  width={100}
-                  height={40}
-                  priority
-                />
+              <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
+                <Link href="/" passHref>
+                  <Image
+                    src="/images/Logo.png"
+                    alt="Your Logo"
+                    width={100}
+                    height={40}
+                    priority
+                  />
+                </Link>
               </Box>
               <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
                 {navItems.map((item) => {
@@ -140,8 +238,8 @@ export default function Navbar() {
                         fontWeight: isActive ? "bold" : "normal",
                         textShadow: "0 1px 3px rgba(0, 0, 0, 0.3)",
                         fontSize: { xs: "0.875rem", sm: "1rem" },
-                        border: isActive 
-                          ? "2px solid #000" 
+                        border: isActive
+                          ? "2px solid #000"
                           : "2px solid transparent",
                         transition: "all 0.3s ease",
                         "&:hover": {
@@ -154,6 +252,78 @@ export default function Navbar() {
                     </Button>
                   );
                 })}
+                {user && (
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <IconButton
+                      onClick={handleMenuOpen}
+                      sx={{ p: 0, ml: 2 }}
+                      aria-controls="user-menu"
+                      aria-haspopup="true"
+                    >
+                      <Avatar
+                        alt={user.name}
+                        src="/images/default-avatar.jpg" // Replace with user.avatar if available
+                        sx={{ width: 40, height: 40 }}
+                      />
+                    </IconButton>
+                    <Menu
+                      id="user-menu"
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleMenuClose}
+                      PaperProps={{
+                        elevation: 0,
+                        sx: {
+                          overflow: "visible",
+                          filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                          mt: 1.5,
+                          "& .MuiAvatar-root": {
+                            width: 32,
+                            height: 32,
+                            ml: -0.5,
+                            mr: 1,
+                          },
+                          "&:before": {
+                            content: '""',
+                            display: "block",
+                            position: "absolute",
+                            top: 0,
+                            right: 14,
+                            width: 10,
+                            height: 10,
+                            bgcolor: "background.paper",
+                            transform: "translateY(-50%) rotate(45deg)",
+                            zIndex: 0,
+                          },
+                        },
+                      }}
+                      transformOrigin={{ horizontal: "right", vertical: "top" }}
+                      anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                    >
+                      <MenuItem onClick={handleMenuClose}>
+                        <Typography variant="body1" fontWeight="bold">
+                          {user.name}
+                        </Typography>
+                      </MenuItem>
+                      <Divider />
+                      <MenuItem
+                        component={Link}
+                        href="/dashboard"
+                        onClick={handleMenuClose}
+                      >
+                        Dashboard
+                      </MenuItem>
+                      <MenuItem
+                        component={Link}
+                        href="/profile"
+                        onClick={handleMenuClose}
+                      >
+                        Profile
+                      </MenuItem>
+                      <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                    </Menu>
+                  </Box>
+                )}
               </Box>
             </Toolbar>
           </Container>
@@ -175,6 +345,6 @@ export default function Navbar() {
           {drawer}
         </Drawer>
       </Box>
-    </>
+    </Box>
   );
 }

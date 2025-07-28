@@ -34,7 +34,7 @@ export default function Hero() {
               Preferred to sportsmen it engrossed listening. Park gate sell they
               west hard for the.
             </Typography>
-            <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+            <Box sx={{ display: "flex",flexDirection: {xs: 'column', sm: 'row'}, gap: 2, mt: 2 }}>
               <CustomButton component="a" href="/">
                 Find out more
               </CustomButton>

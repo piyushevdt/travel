@@ -68,7 +68,7 @@ export default function HotelDetailPage({ params }) {
           <Grid container spacing={3} sx={{ mb: 4 }}>
             {hotel.rooms.map((room, index) => (
               <Grid size={{ xs: 12, sm: 6 }} key={index}>
-                <Card variant="outlined" sx={{borderRadius: 4}}>
+                <Card variant="outlined" sx={{borderRadius: 4, boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)"}}>
                   <CardContent>
                     <Typography variant="h6" gutterBottom>
                       {room.type}
@@ -118,7 +118,7 @@ export default function HotelDetailPage({ params }) {
 
         <Grid size={{ xs: 12, md: 4 }}>
           <Box sx={{ position: 'sticky', top: 20 }}>
-            <Card sx={{ p: 3, mb: 3, borderRadius: 4 }}>
+            <Card sx={{ p: 3, mb: 3, borderRadius: 4, boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)" }}>
               <Typography variant="h6" gutterBottom>
                 Book This Hotel
               </Typography>
@@ -133,7 +133,7 @@ export default function HotelDetailPage({ params }) {
               </Box>
             </Card>
 
-            <Card sx={{ p: 3, borderRadius: 4 }}>
+            <Card sx={{ p: 3, borderRadius: 4, boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)" }}>
               <Typography variant="h6" gutterBottom>
                 Contact Information
               </Typography>
