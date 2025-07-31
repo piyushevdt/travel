@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { Container, Typography } from '@mui/material';
 import Head from 'next/head';
 import flightsData from '@/data/flights.json';
-import FlightSelectionStep from '@/components/bookings/FlightSelectionStep';
-import PassengerDetailsStep from '@/components/bookings/PassengerDetailsStep';
-import PaymentStep from '@/components/bookings/PaymentStep';
-import ConfirmationStep from '@/components/bookings/ConfirmationStep';
-import BookingStepper from '@/components/bookings/BookingStepper';
+import FlightSelectionStep from './FlightSelectionStep';
+import PassengerDetailsStep from './PassengerDetailsStep';
+import PaymentStep from './PaymentStep';
+import ConfirmationStep from './ConfirmationStep';
+import BookingStepper from './BookingStepper';
+
 
 const BookingsIndex = () => {
   const [activeStep, setActiveStep] = useState(0);
