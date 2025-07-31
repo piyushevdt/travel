@@ -1,0 +1,18 @@
+[
+  {
+    "id": "BOOK001",
+    "flightId": 1,
+    "userId": "USER123",
+    "passengers": [
+      {
+        "name": "John Doe",
+        "passport": "AB1234567",
+        "seat": "12A"
+      }
+    ],
+    "totalPrice": 299,
+    "status": "confirmed",
+    "bookingDate": "2023-06-10T14:30:00",
+    "paymentMethod": "credit_card"
+  }
+]

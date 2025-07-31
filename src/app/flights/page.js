@@ -86,7 +86,7 @@ const FlightsPage = () => {
           {paginatedFlights.length > 0 ? (
             paginatedFlights.map((flight) => (
               <Grid size={{xs: 12}} key={flight.id}>
-                <Card sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
+                <Card sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)", borderRadius: 4 }}>
                   <CardMedia
                     component="img"
                     sx={{ width: { xs: '100%', md: 200 }, height: 200, objectFit: 'cover' }}
