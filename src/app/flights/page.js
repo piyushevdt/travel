@@ -89,7 +89,7 @@ const FlightsPage = () => {
                 <Card sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)", borderRadius: 4 }}>
                   <CardMedia
                     component="img"
-                    sx={{ width: { xs: '100%', md: 200 }, height: 200, objectFit: 'cover' }}
+                    sx={{ width: { xs: '100%', md: 200 }, height: 210, objectFit: 'cover' }}
                     image={flight.image}
                     alt={flight.airline}
                   />
