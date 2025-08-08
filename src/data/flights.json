@@ -10,14 +10,14 @@
     "price": 299,
     "duration": "3h 0m",
     "stops": 0,
-    "image": "/images/delta-airlines.jpg",
+    "image": "https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2025/08/delta.jpg",
     "aircraft": "Boeing 737-800",
     "seatsAvailable": 24,
     "baggageAllowance": "1 checked bag (23kg) + 1 carry-on",
     "amenities": ["WiFi", "Entertainment", "Meal", "USB Charging"],
     "departureTerminal": "Terminal 4",
     "arrivalTerminal": "Terminal 5",
-    "airlineLogo": "/images/delta-logo.png"
+    "airlineLogo": "https://companieslogo.com/img/orig/DAL-3ea1d23b.png?t=1648913453"
   },
   {
     "id": 2,
@@ -30,14 +30,14 @@
     "price": 349,
     "duration": "2h 45m",
     "stops": 0,
-    "image": "/images/united-airlines.jpg",
+    "image": "https://d2n4wb9orp1vta.cloudfront.net/cms/brand/CW/2023-CW/1222-cw-news-Boeing-United-Airlines-order1.jpg",
     "aircraft": "Airbus A320",
     "seatsAvailable": 12,
     "baggageAllowance": "1 checked bag (23kg) + 1 carry-on",
     "amenities": ["WiFi", "Entertainment", "USB Charging"],
     "departureTerminal": "Terminal 1",
     "arrivalTerminal": "Terminal 3",
-    "airlineLogo": "/images/united-logo.png"
+    "airlineLogo": "https://th.bing.com/th/id/R.f551b36e830277ec1a4cd5a6f4f4daa5?rik=PqZGNQPlRZ1gqA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2funited-airlines-logo-png-united-airlines-logo-png-img-748-760-free-transparent-900x760.jpg&ehk=CzHyD7EXA1MEuDb6peEhe1be2dgcvjErSpSRbW3KQYE%3d&risl=&pid=ImgRaw&r=0"
   },
   {
     "id": 3,
@@ -50,14 +50,14 @@
     "price": 199,
     "duration": "3h 30m",
     "stops": 1,
-    "image": "/images/american-airlines.jpg",
+    "image": "https://i.redd.it/2ybw9pexzr801.jpg",
     "aircraft": "Boeing 787",
     "seatsAvailable": 8,
     "baggageAllowance": "1 checked bag (23kg)",
     "amenities": ["WiFi", "Meal", "USB Charging"],
     "departureTerminal": "Terminal B",
     "arrivalTerminal": "Terminal D",
-    "airlineLogo": "/images/american-logo.png"
+    "airlineLogo": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/plain-white-logo-of-american-airlines-steam-oat.jpg"
   },
   {
     "id": 4,
@@ -70,14 +70,14 @@
     "price": 129,
     "duration": "1h 30m",
     "stops": 0,
-    "image": "/images/southwest-airlines.jpg",
+    "image": "https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2023/02/092121_airfield-493.jpg",
     "aircraft": "Boeing 737-700",
     "seatsAvailable": 32,
     "baggageAllowance": "2 checked bags (23kg each) + 1 carry-on",
     "amenities": ["WiFi"],
     "departureTerminal": "Terminal C",
     "arrivalTerminal": "Terminal 1",
-    "airlineLogo": "/images/southwest-logo.png"
+    "airlineLogo": "https://logos-world.net/wp-content/uploads/2020/10/Southwest-Airlines-Logo-1998-2014.png"
   },
   {
     "id": 5,
@@ -90,13 +90,13 @@
     "price": 159,
     "duration": "1h 30m",
     "stops": 0,
-    "image": "/images/jetblue-airlines.jpg",
+    "image": "https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2024/03/jetblue-airbus-a321lr-shutterstock_2407685917.jpg",
     "aircraft": "Airbus A321",
     "seatsAvailable": 18,
     "baggageAllowance": "1 checked bag (23kg) + 1 carry-on",
     "amenities": ["WiFi", "Entertainment", "Snack", "USB Charging"],
     "departureTerminal": "Terminal A",
     "arrivalTerminal": "Terminal 5",
-    "airlineLogo": "/images/jetblue-logo.png"
+    "airlineLogo": "https://tse4.mm.bing.net/th/id/OIP.8tZ4dZvqFhjZPvp7YbCRBgHaHa?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3"
   }
 ]
